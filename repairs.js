@@ -1,0 +1,13 @@
+const repairModels = [
+["iPhone 17 Pro Max","179","99","79","129"],["iPhone 17 Pro","169","99","79","119"],["iPhone 17","149","89","69","109"],
+["iPhone 16e","129","79","69","99"],["iPhone 16 Pro Max","159","89","69","119"],["iPhone 16 Pro","149","89","69","109"],["iPhone 16 Plus","139","79","69","99"],["iPhone 16","129","79","69","99"],
+["iPhone 15 Pro Max","149","79","69","109"],["iPhone 15 Pro","139","79","69","99"],["iPhone 15 Plus","119","69","59","89"],["iPhone 15","109","69","59","89"],
+["iPhone 14 Pro Max","139","79","69","99"],["iPhone 14 Pro","129","79","69","99"],["iPhone 14 Plus","109","69","59","89"],["iPhone 14","99","69","59","79"],
+["iPhone 13 Pro Max","119","69","59","89"],["iPhone 13 Pro","109","69","59","89"],["iPhone 13","99","59","49","79"],["iPhone 13 mini","99","59","49","79"],
+["iPhone 12 Pro Max","109","69","59","79"],["iPhone 12 Pro","99","59","49","79"],["iPhone 12","89","59","49","69"],["iPhone 12 mini","89","59","49","69"],
+["iPhone 11 Pro Max","99","59","49","69"],["iPhone 11 Pro","89","59","49","69"],["iPhone 11","79","49","49","69"],["iPhone XR","79","49","49","69"],["iPhone XS Max","89","49","49","69"],["iPhone XS","79","49","49","69"],["iPhone X","79","49","49","69"],
+["iPhone SE (3rd gen)","79","49","49","59"],["iPhone SE (2nd gen)","69","49","49","59"],["iPhone 8 Plus","69","49","49","59"],["iPhone 8","59","49","49","59"],["iPhone 7 Plus","59","49","49","59"],["iPhone 7","59","49","49","59"],["iPhone 6s Plus","59","49","49","59"],["iPhone 6s","59","49","49","59"]
+];
+// These are editable template prices. Update the array above with your actual store prices before publishing.
+function renderRepairs(){const q=(document.getElementById("repairSearch").value||"").toLowerCase();const type=document.getElementById("repairType").value;const wrap=document.getElementById("repairTable");let rows='<div class="repair-row head"><span>Model</span><span>Screen</span><span>Battery</span><span>Port</span><span>Back Glass</span></div>';repairModels.filter(r=>r[0].toLowerCase().includes(q)).forEach(r=>{rows+=`<div class="repair-row"><span><b>${r[0]}</b></span><span class="price ${type==='screen'?'':'show'}">$${r[1]}</span><span class="price ${type==='battery'?'':'show'}">$${r[2]}</span><span class="price ${type==='port'?'':'show'}">$${r[3]}</span><span class="price ${type==='back'?'':'show'}">$${r[4]}</span></div>`});wrap.innerHTML=rows;}
+document.getElementById("repairSearch").addEventListener("input",renderRepairs);document.getElementById("repairType").addEventListener("change",renderRepairs);renderRepairs();
