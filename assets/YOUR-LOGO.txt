@@ -1,1 +1,0 @@
-This is the complete logo image supplied by the business owner. It is displayed using object-fit: contain so the entire image is visible and not cropped.
